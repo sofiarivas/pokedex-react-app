@@ -3,10 +3,11 @@ import styled from "styled-components";
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px auto;
   border: 1px dashed lightgray;
   text-align: left;
   padding: 40px;
+  max-width: 800px;
 `;
 
 const DetailsList = styled.ul`
@@ -34,15 +35,21 @@ const PokemonTitle = styled.h4`
   margin: 0;
 `;
 
+const PokemonId = styled.span`
+  color: red;
+`
+
 const TypeTags = styled.div`
   display: flex;
 `;
 
 const Tag = styled.span`
   font-size: 10px;
-  border: 1px solid red;
+  color: white;
+  background-color: red;
   padding: 5px;
   display: inline-block;
+  margin-right: 10px;
 `;
 
 export {
@@ -51,6 +58,7 @@ export {
   PokemonThumbnail,
   SectionTitle,
   PokemonTitle,
+  PokemonId,
   TypeTags,
   Tag
 };

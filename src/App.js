@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import PokeClass from "./PokeClass";
 import PokeHooks from "./PokeHook";
@@ -32,11 +32,11 @@ export default function App() {
               </Link>
               <Link to="/pokemon/h" className="link-button">
                 <img
-                  class="title-image"
+                  className="title-image"
                   src="https://media.giphy.com/media/fLp2fTpKTZsj2xW1zI/giphy.gif"
                   alt="pokemon-gif"
                 />
-                <h3 class="title-hooks">PokeHooks!</h3>
+                <h3 className="title-hooks">PokeHooks!</h3>
               </Link>
             </div>
           </Route>

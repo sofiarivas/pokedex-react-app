@@ -16,11 +16,11 @@ function PokeHooks(props) {
   return (
     <div>
       <img
-        class="title-image"
+        className="title-image"
         src="https://media.giphy.com/media/fLp2fTpKTZsj2xW1zI/giphy.gif"
         alt="pokemon-gif"
       />
-      <h3 class="title-hooks">PokeHooks!</h3>
+      <h3 className="title-hooks">PokeHooks!</h3>
       <div>
         {pokemons.map((pokemon, i) => {
           return (

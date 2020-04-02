@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
 import {
   DetailsWrapper,
   DetailsList,
   PokemonThumbnail,
   SectionTitle,
   PokemonTitle,
+  PokemonId,
   Tag,
   TypeTags
 } from "./PokemonDetail.styled";
@@ -13,11 +13,13 @@ import {
 function PokemonDetail(props) {
   const [pokemonData, setPokemonData] = useState({
     name: "",
+    id: "",
     thumbnail_front: "",
     thumbnail_back: "",
     height: "",
     weight: "",
-    types: []
+    types: [],
+    abilities: []
   });
   useEffect(() => {
     async function getPokemonData() {
@@ -26,20 +28,24 @@ function PokemonDetail(props) {
       ).then(response => response.json());
       console.log("fetch data", res);
       const types = res.types.map(type => type.type.name);
+      const abilities = res.abilities.map(ability => ability.ability.name);
       setPokemonData({
         name: res.name,
+        id: res.id,
         thumbnail_front: res.sprites.front_default,
         thumbnail_back: res.sprites.back_default,
-        height: res.height,
-        weight: res.weight,
-        types
+        height: res.height /10,
+        weight: res.weight /10,
+        types,
+        abilities,
       });
     }
     getPokemonData();
   }, []);
   return (
     <DetailsWrapper>
-      <PokemonTitle>{props.match.params.name}</PokemonTitle>
+      <PokemonId>#{pokemonData.id}</PokemonId>
+      <PokemonTitle>{pokemonData.name}</PokemonTitle>
       {pokemonData.thumbnail_front && (
         <div>
           <PokemonThumbnail
@@ -57,11 +63,17 @@ function PokemonDetail(props) {
         <li>Weight: {pokemonData.weight} kg</li>
       </DetailsList>
       <TypeTags>
-        {pokemonData.types.map(type => (
-          <Tag key={type}>{type}</Tag>
+        {pokemonData.types.map((type, index) => (
+          <Tag key={index}>{type}</Tag>
         ))}
       </TypeTags>
-      <SectionTitle>Evolution</SectionTitle>
+      
+      <SectionTitle>Abilities</SectionTitle>
+        <DetailsList>
+          {pokemonData.abilities.map((ability, index) => (
+            <li key={index}>{ability}</li>
+          ))}
+        </DetailsList>
     </DetailsWrapper>
   );
 }
