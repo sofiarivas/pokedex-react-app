@@ -1,0 +1,83 @@
+html {
+  background-color: black;
+}
+.App {
+  font-family: "Roboto Mono", sans-serif;
+  text-align: center;
+  color: white;
+}
+
+h1,
+h3 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header-image {
+  width: 120px;
+  margin: 40px 0;
+}
+
+.pokedex {
+  display: flex;
+}
+
+.class-pokedex {
+  width: 50%;
+  padding: 20px;
+  border: 2px solid pink;
+}
+
+.hooks-pokedex {
+  width: 50%;
+  padding: 20px;
+  border: 2px solid blue;
+}
+
+.title-classes {
+  color: #f09620;
+}
+
+.title-hooks {
+  color: #40c9f3;
+}
+
+.title-image {
+  height: 30px;
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.link-button {
+  width: 50%;
+  border: 1px dotted white;
+  padding: 40px;
+  margin: 10px;
+}
+
+.link-button:hover {
+  background-color: #3e3f3f;
+}
+
+.item {
+  padding: 20px;
+  margin: 10px;
+  color: white;
+  border: 1px solid red;
+}
